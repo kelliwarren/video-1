@@ -8,10 +8,10 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    session = @opentok.create_session request.remote_addr
-    params[:room][:sessionId] = session.session_id
+    @session = @opentok.create_session request.remote_addr
+    @room.sessionId = @session.session_id
     if @room.save
-      redirect_to rooms_show_path(@room.id)
+      redirect_to rooms_show_path(@room)
     else 
       raise
     end
