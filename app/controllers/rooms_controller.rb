@@ -18,6 +18,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
+    @token = @opentok.generate_token :session_id => @room.sessionId
   end
 
   def destroy
