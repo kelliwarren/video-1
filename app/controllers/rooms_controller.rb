@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :config_opentok, only:[:create]
+  before_action :config_opentok
   before_action :room_params, only:[:create]
   def new
     @rooms = Room.all
@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
     @session = @opentok.create_session request.remote_addr
     @room.sessionId = @session.session_id
     if @room.save
+
       redirect_to rooms_show_path(@room)
     else 
       raise
@@ -19,6 +20,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    
     @token = @opentok.generate_token :session_id => @room.sessionId
   end
 

@@ -1,15 +1,11 @@
-<html>
-  <head>
-    <title>
-    Opentok Quick Start
-    </title>
-    <script src='https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js'></script>
+<% content_for(:head) do %>
+     <script src='https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js'></script>
     <script type="text/javascript">
      var apiKey = "44703992";
      
 
-     var sessionId = "1_MX40NDcwMzk5Mn5-U2F0IE1hciAyMiAxMDoxNzowNyBQRFQgMjAxNH4wLjcyNDIzNDE2fg";
-     var token = "T1==cGFydG5lcl9pZD00NDcwMzk5MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz1jZDZkMjM5MWFmNjYxMjdhNGViZmU2ZTgyYmJhOTRiN2E0Y2IyODVmOnJvbGU9c3Vic2NyaWJlciZzZXNzaW9uX2lkPTFfTVg0ME5EY3dNems1TW41LVUyRjBJRTFoY2lBeU1pQXhNRG94Tnpvd055QlFSRlFnTWpBeE5INHdMamN5TkRJek5ERTJmZyZjcmVhdGVfdGltZT0xMzk1NTA4NjQwJm5vbmNlPTAuMDM0NjY3NzM0MjE3NzE4NDA0JmV4cGlyZV90aW1lPTEzOTU1OTQ4ODcmY29ubmVjdGlvbl9kYXRhPQ==";
+     var sessionId = "<%= @room.sessionId %>";
+     var token = "<%= @token %>";
 
 
      
@@ -39,11 +35,9 @@
      session.addEventListener("streamCreated", streamCreatedHandler);
 
     </script>
-  </head>
-  <body>
+<% end %>
+
     <h1>Awesome video feed!</h1>
     <div id="myPublisherDiv"></div>
 
     <button>disconnect</button>
-  </body>
-</html>
