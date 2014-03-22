@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  database: video_development
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: video_production

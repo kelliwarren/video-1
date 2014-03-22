@@ -1,0 +1,8 @@
+<% @rooms.each do |room| %>
+  <%= link_to(room.name, rooms_show_path(room.id)) %><br />
+<% end %>
+<%= form_for(@room) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Submit" %>
+<% end %>  
